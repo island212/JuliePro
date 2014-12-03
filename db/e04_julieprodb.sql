@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2014 at 09:27 PM
+-- Generation Time: Dec 03, 2014 at 09:45 PM
 -- Server version: 5.6.15-log
 -- PHP Version: 5.5.8
 
@@ -28,7 +28,6 @@ USE `e04_julieprodb`;
 -- Table structure for table `client`
 --
 
-DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
   `idClient` int(11) NOT NULL AUTO_INCREMENT,
   `telephone` char(10) NOT NULL,
@@ -57,7 +56,6 @@ INSERT INTO `client` (`idClient`, `telephone`, `cellulaire`, `adresse`, `ville`,
 -- Table structure for table `entraineur_client`
 --
 
-DROP TABLE IF EXISTS `entraineur_client`;
 CREATE TABLE IF NOT EXISTS `entraineur_client` (
   `idEntraineur_Client` int(11) NOT NULL,
   `Personne_idPersonne` int(11) NOT NULL,
@@ -80,7 +78,6 @@ INSERT INTO `entraineur_client` (`idEntraineur_Client`, `Personne_idPersonne`, `
 -- Table structure for table `personne`
 --
 
-DROP TABLE IF EXISTS `personne`;
 CREATE TABLE IF NOT EXISTS `personne` (
   `idPersonne` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(24) NOT NULL,
