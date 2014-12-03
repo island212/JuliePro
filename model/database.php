@@ -1,7 +1,11 @@
 <?php
     $dbname = "e04_julieprodb";
-    $username = "";
-    $password = "";
+    $username = "mgs_user";
+    $password = "pa55word";
 
-    $db = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
+    try {
+        $db = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
+    } catch(PDOException $e) {
+        echo $e->getMessage();
+    }
 ?>
