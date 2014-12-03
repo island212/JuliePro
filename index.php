@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: 1381109
- * Date: 14-12-03
- * Time: 14:41
- */ 
+<form action="login.php?action=login" method="POST">
+    <label>Username : </label>
+    <input type="text" name="username" /><br />
+    <label>Password : </label>
+    <input type="text" name="password" /><br />
+    <input type="submit" name="submit" />
+</form>
