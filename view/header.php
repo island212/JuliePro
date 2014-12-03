@@ -95,3 +95,6 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 
         </div>
     </nav>
+    <div id="page-wrapper" >
+        <div id="page-inner">
+            <div class="row">
