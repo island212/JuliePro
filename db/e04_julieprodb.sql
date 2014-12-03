@@ -22,6 +22,29 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `e04_julieprodb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `e04_julieprodb`;
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `entraineur_client`
+--
+
+DROP TABLE IF EXISTS `entraineur_client`;
+CREATE TABLE IF NOT EXISTS `entraineur_client` (
+  `idEntraineur_Client` int(11) NOT NULL,
+  `Personne_idPersonne` int(11) NOT NULL,
+  `Client_idClient` int(11) NOT NULL,
+  PRIMARY KEY (`idEntraineur_Client`,`Personne_idPersonne`,`Client_idClient`),
+  KEY `fk_Entraineur_Client_Personne1_idx` (`Personne_idPersonne`),
+  KEY `fk_Entraineur_Client_Client1_idx` (`Client_idClient`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `entraineur_client`
+--
+
+INSERT INTO `entraineur_client` (`idEntraineur_Client`, `Personne_idPersonne`, `Client_idClient`) VALUES
+(0, 2, 1);
 -- --------------------------------------------------------
 
 --
@@ -51,28 +74,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 INSERT INTO `client` (`idClient`, `telephone`, `cellulaire`, `adresse`, `ville`, `cp`, `dateNaissance`, `dateInscription`, `courriel`, `Personne_idPersonne`) VALUES
 (1, '3603601337', '3603601337', '420 Blazeit St.', 'SnoopTown', 'D6D6D6', '1996-01-20', '2014-12-04', 'modonoob@erileduc.zip', 3);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `entraineur_client`
---
-
-DROP TABLE IF EXISTS `entraineur_client`;
-CREATE TABLE IF NOT EXISTS `entraineur_client` (
-  `idEntraineur_Client` int(11) NOT NULL,
-  `Personne_idPersonne` int(11) NOT NULL,
-  `Client_idClient` int(11) NOT NULL,
-  PRIMARY KEY (`idEntraineur_Client`,`Personne_idPersonne`,`Client_idClient`),
-  KEY `fk_Entraineur_Client_Personne1_idx` (`Personne_idPersonne`),
-  KEY `fk_Entraineur_Client_Client1_idx` (`Client_idClient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `entraineur_client`
---
-
-INSERT INTO `entraineur_client` (`idEntraineur_Client`, `Personne_idPersonne`, `Client_idClient`) VALUES
-(0, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -125,6 +127,3 @@ ALTER TABLE `entraineur_client`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE USER 'mgs_user'@'localhost' IDENTIFIED BY 'pa55word';
-GRANT ALL PRIVILEGES ON *.* TO 'mgs_user'@'%' IDENTIFIED BY 'pa55word' WITH GRANT OPTION;
