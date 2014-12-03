@@ -10,6 +10,9 @@
             <li>
                 <a class="active-menu"  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
             </li>
+            <li>
+                <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
+            </li>
     </div>
 </nav>
 <div id="page-wrapper" >
