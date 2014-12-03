@@ -1,38 +1,24 @@
 <?php
 require_once('database.php');
-function get_type($username, $password)
-{
+function get_type($username, $password) {
     global $db;
-    $usernameQuery = "SELECT username FROM Personne
+    $usernameQuery = "SELECT username FROM personne
                     WHERE username='$username'";
-    $checkUsername = $db->query($usernameQuery);
-    if ($checkUsername == $username) {
-        $passwordQuery = "SELECT password FROM Personne
-        WHERE $password='$password'";
-        $checkPassword = $db->query($passwordQuery);
-        if ($checkPassword == $password) {
-            $query = "SELECT type FROM Personne
-                    WHERE username='$username',password='$password'";
-            $type = $db->query($query);
-            switch ($type) {
-                case 0:
-                    return "Super-utilisateur";
-                    break;
-                case 1:
-                    return "Entraineur";
-                    break;
-                case 2:
-                    return "Client";
-                    break;
-                default:
-                    return "type non-valide";
-                    break;
-            }
+    $checkUsername = $db->query($usernameQuery)->fetch();
+    if ($checkUsername[0] == $username) {
+        $passwordQuery = "SELECT password FROM personne
+        WHERE password='$password' AND username='$username'";
+        $checkPassword = $db->query($passwordQuery)->fetch();
+        if ($checkPassword[0] == $password) {
+            $query = "SELECT type FROM personne
+                    WHERE username='$username' AND password='$password'";
+            $type = $db->query($query)->fetch();
+            return $type[0];
         } else {
-            return "Le mot de passe n'est pas valide";
+            return -1;
         }
     } else {
-        return "Le nom d'utilisateur n'existe pas";
+        return -2;
     }
 }
 ?>
