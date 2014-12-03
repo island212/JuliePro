@@ -1,4 +1,5 @@
 <?php
+require_once('database.php');
 function get_type($username,$password){
     global $db;
     $query="SELECT type FROM Personne
