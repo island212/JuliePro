@@ -21,7 +21,7 @@
     <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0"></nav>
     <div id="page-inner">
         <div class="row">
-            <form class="col-lg-12" style="text-align: center" action="login.php?action=login" method="POST">
+            <form class="col-lg-12" style="text-align: center" action="login.php?action=login" method="post">
                 <label>Username : </label>
                 <input type="text" name="username" /><br />
                 <label>Password : </label>
