@@ -5,13 +5,11 @@
             <li class="text-center">
                 <img src="../assets/img/find_user.png" class="user-image img-responsive"/>
             </li>
-
-
             <li>
-                <a class="active-menu"  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                <a class="active-menu"  href="../employee/home.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
             </li>
             <li>
-                <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
+                <a  href="../employee/client_add.php"><i class="fa fa-book fa-3x"></i> UI Elements</a>
             </li>
     </div>
 </nav>
