@@ -1,6 +1,22 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    if(isset($_GET['action'])) {
+        $action = $_GET['action'];
+        if($action == 'login' && isset($_POST['username']) && isset($_POST['password'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            require_once('model/personne_db.php');
+            $result = get_type($username, $password);
+            if($result == 2) {
+                header("Location: employee/home.php");
+            }
+        }
+    }
+?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
 <head>
+    <?php require_once('model/personne_db.php'); ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Free Bootstrap Admin Template : Binary Admin</title>
@@ -29,14 +45,14 @@ font-size: 16px;"> <?php
     </nav>
     <div id="page-inner">
         <div class="row">
-            <form class="col-lg-12" style="text-align: center" action="login.php?action=login" method="post">
+            <form class="collg-12" style="text-align: center" action=".?action=login" method="post">
                 <label>Username : </label>
-                <input type="text" name="username" /><br />
+                <input type="text" name="username" /><?php if(isset($result) && $result != 2) { echo '<label>*</label>'; } ?>
+                <br />
                 <label>Password : </label>
                 <input type="text" name="password" /><br />
                 <input type="submit" name="submit" />
             </form>
-
         </div>
         <!-- /. ROW  -->
     </div>

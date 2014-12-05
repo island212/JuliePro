@@ -11,7 +11,7 @@
     require_once('model/personne_db.php');
 
     switch($action) {
-        case 'login':
+        case 'login_successful':
             echo(get_type($username, $password));
             break;
     }
