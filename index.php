@@ -50,7 +50,7 @@ font-size: 16px;"> <?php
                 <input type="text" name="username" /><?php if(isset($result) && $result != 2) { echo '<label>*</label>'; } ?>
                 <br />
                 <label>Password : </label>
-                <input type="text" name="password" /><br />
+                <input type="password" name="password" /><br />
                 <input type="submit" name="submit" />
             </form>
         </div>
