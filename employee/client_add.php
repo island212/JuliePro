@@ -1,15 +1,15 @@
-<?php include('../view/employee_sidebar.php') ?>
+<?php $currentPage = 'client_add'; include('../view/employee_sidebar.php') ?>
 
     <div class="row">
         <div class="col-md-12">
-            <form role="form" class="col-md-6">
+            <form role="form" class="col-md-6" action=".?action=add_client" method="post">
                 <div class="form-group">
                     <label>Nom:</label>
                     <input class="form-control" type="text" name="lastName" placeholder="Nom">
                 </div>
                 <div class="form-group">
                     <label>Prénom:</label>
-                    <input class="form-control" type="text" name="firstName" placeholder="Prenom">
+                    <input class="form-control" type="text" name="firstName" placeholder="Prénom">
                 </div>
                 <div class="form-group">
                     <label>Adresse:</label>

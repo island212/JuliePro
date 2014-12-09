@@ -9,5 +9,31 @@ if(isset($_GET['action'])) {
         $clients = get_listeClient(2);
         include('client_list.php');
     }
+    else if($action == 'add_client_form') {
+        include('client_add.php');
+    }
+    else if($action == 'add_client') {
+        require('../model/personne_db.php');
+        require('../model/client_db.php');
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $fname = $_POST['firstName'];
+        $lname = $_POST['lastName'];
+        $address = $_POST['address'];
+        $cell = $_POST['cellulaire'];
+        $courriel = $_POST['courriel'];
+        $cp = $_POST['cp'];
+        $dInscription = $_POST['dateInscription'];
+        $dNaissance = $_POST['dateNaissance'];
+        $telephone = $_POST['telephone'];
+        $ville = $_POST['ville'];
+
+        create_personne($username, $password, $fname, $lname, 2);
+        $personneId = get_idPersonne($username);
+        create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville);
+
+        header('Location : .?action=list_clients');
+    }
 }
 ?>
