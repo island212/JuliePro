@@ -28,11 +28,11 @@ function get_type($username, $password) {
 function create_personne($username,$passowrd,$firstName,$lastName,$type){
     global $db;
     $usernameQuery = "SELECT username FROM personne
-                    WHERE username='$username'";
+                      WHERE username='$username'";
     $checkUsername = $db->query($usernameQuery)->fetch();
     if ($checkUsername[0] == $username) {
         $insertQuery = "INSERT INTO personne (username,password,firstName,lastName,[type])
-                        VALUES ($$username,$$passowrd,$$firstName,$lastName,$type)";
+                        VALUES ($username,$passowrd,$firstName,$lastName,$type)";
         $db->exec($insertQuery);
         return 0;
     } else {
@@ -53,6 +53,15 @@ function get_idPersonne($username){
     } else {
         return -1;
     }
+}
+
+
+function get_listeClient($idPersonne){
+    global $db;
+    $query = "SELECT Client_idClient FROM entraineur_client
+              WHERE Personne_idPersonne=$idPersonne";
+    $listeClient = $db->query($query)->fetch();
+    return $listeClient;
 }
 
 ?>
