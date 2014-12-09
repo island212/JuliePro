@@ -63,3 +63,4 @@ ehthumbs
 Thumbs
 .db
 *.xml
+.idea/workspace.xml
