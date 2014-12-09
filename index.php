@@ -60,14 +60,14 @@ font-size: 16px;"> <?php
                 <div class="panel-body">
                     <p>Veuillez vous connecter pour continuer.</p><br />
                     <form action=".?action=login" method="post">
-                    <?php if(isset($result) && $result == -2 || $username == "") {
+                    <?php if((isset($result) && $result == -2) || (isset($action) && $action == 'login' && $username == "")) {
                             echo '<div class="form-group has-error"><label class="control-label">Nom d\'utilisateur non valide.</label>';
                           } else {
                             echo '<div class="form-group">';
                     } ?>
                         <input class="form-control" type="text" name="username" placeholder="Nom d'utilisateur" value="<?php if(isset($username)) { echo $username; } ?>"/>
                     </div>
-                <?php if(isset($result) && $result == -1 || $password == "") {
+                <?php if((isset($result) && $result == -1) || (isset($action) && $action == 'login' && $password == "")) {
                     echo '<div class="form-group has-error"><label class="control-label">Mot de passe non valide.</label>';
                 } else {
                     echo '<div class="form-group">';
