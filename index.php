@@ -11,6 +11,14 @@
                 header("Location: employee/home.php");
             }
         }
+        else {
+            if(!isset($_POST['username'])) {
+                $username = "";
+            }
+            if(!isset($_POST['password'])) {
+                $password = "";
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -44,15 +52,32 @@ font-size: 16px;"> <?php
         </div>
     </nav>
     <div id="page-inner">
-        <div class="row">
-            <form class="collg-12" style="text-align: center" action=".?action=login" method="post">
-                <label>Username : </label>
-                <input type="text" name="username" /><?php if(isset($result) && $result != 2) { echo '<label>*</label>'; } ?>
-                <br />
-                <label>Password : </label>
-                <input type="text" name="password" /><br />
-                <input type="submit" name="submit" />
-            </form>
+        <div class="col-md-4 col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Connexion
+                </div>
+                <div class="panel-body">
+                    <p>Veuillez vous connecter pour continuer.</p><br />
+                    <form action=".?action=login" method="post">
+                    <?php if(isset($result) && $result == -2 || $username == "") {
+                            echo '<div class="form-group has-error"><label class="control-label">Nom d\'utilisateur non valide.</label>';
+                          } else {
+                            echo '<div class="form-group">';
+                    } ?>
+                        <input class="form-control" type="text" name="username" placeholder="Nom d'utilisateur" value="<?php if(isset($username)) { echo $username; } ?>"/>
+                    </div>
+                <?php if(isset($result) && $result == -1 || $password == "") {
+                    echo '<div class="form-group has-error"><label class="control-label">Mot de passe non valide.</label>';
+                } else {
+                    echo '<div class="form-group">';
+                } ?>
+                        <input class="form-control" type="password" name="password" placeholder="Mot de passe" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Connexion</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <!-- /. ROW  -->
     </div>

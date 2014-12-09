@@ -1,5 +1,7 @@
 <?php
 require_once('database.php');
+
+/*Retourne l'idPersonne si le username et le password sont trouvés, -1 si le password est éronné ou -2 si le username n'est pas trouvé.*/
 function get_type($username, $password) {
     global $db;
     $usernameQuery = "SELECT username FROM personne
