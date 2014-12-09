@@ -70,22 +70,12 @@ function get_liste_client($idPersonne){
 }
 
 /*Retourne le firstName d'une personne*/
-function get_firstName($idPersonne){
+function get_info_personne($idPersonne){
     global $db;
-    $query = "SELECT firstName FROM personne
+    $query = "SELECT firstName, lastName, username, password, type, idPersonne FROM personne
               WHERE idPersonne=$idPersonne";
     $firstName = $db->query($query)->fetch();
     return $firstName;
 }
-
-/*Retourne le lastName d'une personne*/
-function get_lastName($idPersonne){
-    global $db;
-    $query = "SELECT lastName FROM personne
-              WHERE idPersonne=$idPersonne";
-    $lastName = $db->query($query)->fetch();
-    return $lastName;
-}
-
 
 ?>

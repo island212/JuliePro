@@ -9,12 +9,13 @@ function create_client($adresse, $cellulaire, $courriel, $cp, $dateInscription, 
     $db->query($query);
 }
 
-
 /*Retourne les info sur le client avec plus de details*/
-function get_infoClient_detail($idPersonne,$idClient){
-
-
-
+function get_infoClient_detail($idClient){
+    global $db;
+    $query = "SELECT telephone, cellulaire, adresse, ville, cp, dateNaissance, dateInscrition, courriel FROM client
+              WHERE idClient = $idClient";
+    $client = $db->query($query)->fetch();
+    return $client;
 }
 
 ?>
