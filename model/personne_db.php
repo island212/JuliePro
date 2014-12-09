@@ -55,7 +55,7 @@ function get_idPersonne($username){
     }
 }
 
-
+/*Retourne une liste de client selon le idPersonne d'un entraineur*/
 function get_listeClient($idPersonne){
     global $db;
     $query = "SELECT Client_idClient FROM entraineur_client
@@ -63,5 +63,24 @@ function get_listeClient($idPersonne){
     $listeClient = $db->query($query)->fetch();
     return $listeClient;
 }
+
+/*Retourne le firstName d'une personne*/
+function get_firstName($idPersonne){
+    global $db;
+    $query = "SELECT firstName FROM personne
+              WHERE idPersonne=$idPersonne";
+    $firstName = $db->query($query)->fetch();
+    return $firstName;
+}
+
+/*Retourne le lastName d'une personne*/
+function get_lastName($idPersonne){
+    global $db;
+    $query = "SELECT lastName FROM personne
+              WHERE idPersonne=$idPersonne";
+    $lastName = $db->query($query)->fetch();
+    return $lastName;
+}
+
 
 ?>
