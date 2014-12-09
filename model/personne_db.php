@@ -58,8 +58,13 @@ function get_idPersonne($username){
 /*Retourne une liste de client selon le idPersonne d'un entraineur*/
 function get_listeClient($idPersonne){
     global $db;
-    $query = "SELECT Client_idClient FROM entraineur_client
-              WHERE Personne_idPersonne=$idPersonne";
+    $query = "SELECT personne.firstName, personne.lastName, personne.username, personne.password, client.adresse, client.cellulaire, client.courriel, client.cp, client.dateInscription, client.dateNaissance, client.telephone, client.ville
+              FROM entraineur_client
+              INNER JOIN client
+              ON client.idClient = entraineur_client.Client_idClient
+              INNER JOIN personne
+              ON personne.idPersonne = client.Personne_idPersonne
+              WHERE entraineur_client.Personne_idPersonne = $idPersonne";
     $listeClient = $db->query($query)->fetch();
     return $listeClient;
 }
