@@ -7,7 +7,10 @@
                 <h3 class="text-center" style="color: #DDD;">Prénom, Nom</h3>
             </li>
             <li>
-                <a class="active-menu"  href="../employee/?action=home"><i class="fa fa-group fa-3x"></i> Mes clients</a>
+                <a <?php if($currentPage == 'home') { echo 'class="active-menu"'; } ?> href="../employee/?action=home"><i class="fa fa-home fa-3x"></i> Accueil</a>
+            </li>
+            <li>
+                <a <?php if($currentPage == 'client_list') { echo 'class="active-menu"'; } ?> href="../employee/?action=list_clients"><i class="fa fa-group fa-3x"></i> Mes clients</a>
             </li>
     </div>
 </nav>
