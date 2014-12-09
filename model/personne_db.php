@@ -56,7 +56,7 @@ function get_idPersonne($username){
 }
 
 /*Retourne une liste de client selon le idPersonne d'un entraineur*/
-function get_listeClient($idPersonne){
+function get_liste_client($idPersonne){
     global $db;
     $query = "SELECT personne.firstName, personne.lastName, personne.username, personne.password, client.adresse, client.cellulaire, client.courriel, client.cp, client.dateInscription, client.dateNaissance, client.telephone, client.ville
               FROM entraineur_client
