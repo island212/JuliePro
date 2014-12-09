@@ -64,8 +64,8 @@ function get_liste_client($idPersonne){
               ON client.idClient = entraineur_client.Client_idClient
               INNER JOIN personne
               ON personne.idPersonne = client.Personne_idPersonne
-              WHERE entraineur_client.Personne_idPersonne = $idPersonne";
-    $listeClient = $db->query($query)->fetch();
+              WHERE entraineur_client.Personne_idPersonne = '$idPersonne'";
+    $listeClient = $db->query($query);
     return $listeClient;
 }
 
