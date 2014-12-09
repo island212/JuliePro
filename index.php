@@ -7,8 +7,8 @@
 
             require_once('model/personne_db.php');
             $result = get_type($username, $password);
-            if($result == 2) {
-                header("Location: employee/home.php");
+            if($result == 1) {
+                header("Location: employee/index.php?action=home");
             }
         }
         else {

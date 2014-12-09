@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>JuliePro</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">Binary admin</a>
+            <a class="navbar-brand" href=".?action=home">JuliePro</a>
         </div>
         <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -33,5 +33,6 @@ float: right;
 font-size: 16px;"> <?php
             setlocale (LC_TIME, 'fr_FR.utf8','fra');
             echo utf8_encode((strftime("%d %B %Y")));
-            ?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+            ?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
+        </div>
     </nav>
