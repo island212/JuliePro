@@ -25,6 +25,29 @@ USE `e04_julieprodb`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `entraineur_client`
+--
+
+DROP TABLE IF EXISTS `entraineur_client`;
+CREATE TABLE IF NOT EXISTS `entraineur_client` (
+  `idEntraineur_Client` int(11) NOT NULL,
+  `Personne_idPersonne` int(11) NOT NULL,
+  `Client_idClient` int(11) NOT NULL,
+  PRIMARY KEY (`idEntraineur_Client`,`Personne_idPersonne`,`Client_idClient`),
+  KEY `fk_Entraineur_Client_Personne1_idx` (`Personne_idPersonne`),
+  KEY `fk_Entraineur_Client_Client1_idx` (`Client_idClient`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `entraineur_client`
+--
+
+INSERT INTO `entraineur_client` (`idEntraineur_Client`, `Personne_idPersonne`, `Client_idClient`) VALUES
+(0, 2, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `client`
 --
 
@@ -53,28 +76,7 @@ INSERT INTO `client` (`idClient`, `telephone`, `cellulaire`, `adresse`, `ville`,
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `entraineur_client`
---
 
-DROP TABLE IF EXISTS `entraineur_client`;
-CREATE TABLE IF NOT EXISTS `entraineur_client` (
-  `idEntraineur_Client` int(11) NOT NULL,
-  `Personne_idPersonne` int(11) NOT NULL,
-  `Client_idClient` int(11) NOT NULL,
-  PRIMARY KEY (`idEntraineur_Client`,`Personne_idPersonne`,`Client_idClient`),
-  KEY `fk_Entraineur_Client_Personne1_idx` (`Personne_idPersonne`),
-  KEY `fk_Entraineur_Client_Client1_idx` (`Client_idClient`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `entraineur_client`
---
-
-INSERT INTO `entraineur_client` (`idEntraineur_Client`, `Personne_idPersonne`, `Client_idClient`) VALUES
-(0, 2, 1);
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `personne`
