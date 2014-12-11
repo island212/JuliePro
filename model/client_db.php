@@ -1,4 +1,6 @@
 <?php
+require_once('database.php');
+
 /*type 2 = client*/
 function create_client($adresse, $cellulaire, $courriel, $cp, $dateInscription, $dateNaissance, $idPersonne, $telephone, $ville, $entraineurId){
     global $db;

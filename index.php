@@ -8,6 +8,10 @@
             require_once('model/personne_db.php');
             $result = get_type($username, $password);
             if($result == 1) {
+                session_start();
+                $_SESSION['username'] = $username;
+                $_SESSION['password'] = $password;
+                $_SESSION['idEntraineur'] = get_idPersonne($username);
                 header("Location: employee/index.php?action=home");
             }
         }

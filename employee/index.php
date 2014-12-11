@@ -5,6 +5,7 @@ if(isset($_GET['action'])) {
         include('home.php');
     }
     else if($action == 'list_clients') {
+        require('../model/database.php');
         require('../model/personne_db.php');
         $clients = get_liste_client(2);
         include('client_list.php');
