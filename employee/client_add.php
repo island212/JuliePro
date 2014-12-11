@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Code Postal:</label>
-                    <input class="form-control" type="text" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" name="cp" placeholder="HOH OHO">
+                    <input class="form-control" type="text" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" name="cp" placeholder="H0H 0H0">
                 </div>
 
                 <hr />

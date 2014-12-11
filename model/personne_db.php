@@ -31,8 +31,8 @@ function create_personne($username,$passowrd,$firstName,$lastName,$type){
                       WHERE username='$username'";
     $checkUsername = $db->query($usernameQuery)->fetch();
     if ($checkUsername[0] == $username) {
-        $insertQuery = "INSERT INTO personne (username,password,firstName,lastName,[type])
-                        VALUES ($username,$passowrd,$firstName,$lastName,$type)";
+        $insertQuery = "INSERT INTO personne (username, password, firstName, lastName, categorie)
+                        VALUES ('$username','$passowrd','$firstName','$lastName','$type')";
         $db->exec($insertQuery);
         return 0;
     } else {
@@ -72,8 +72,8 @@ function get_liste_client($idPersonne){
 /*Retourne le firstName d'une personne*/
 function get_info_personne($idPersonne){
     global $db;
-    $query = "SELECT firstName, lastName, username, password, type, idPersonne FROM personne
-              WHERE idPersonne=$idPersonne";
+    $query = "SELECT firstName, lastName, username, password, categorie, idPersonne FROM personne
+              WHERE idPersonne='$idPersonne'";
     $firstName = $db->query($query)->fetch();
     return $firstName;
 }
