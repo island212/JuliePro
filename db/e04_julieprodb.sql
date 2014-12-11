@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2014 at 09:58 PM
+-- Generation Time: Dec 11, 2014 at 04:05 PM
 -- Server version: 5.6.15-log
 -- PHP Version: 5.5.8
 
@@ -22,6 +22,34 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `e04_julieprodb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `e04_julieprodb`;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `client`
+--
+
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE IF NOT EXISTS `client` (
+  `idClient` int(11) NOT NULL AUTO_INCREMENT,
+  `telephone` varchar(12) NOT NULL,
+  `cellulaire` varchar(12) NOT NULL,
+  `adresse` varchar(45) NOT NULL,
+  `ville` varchar(45) NOT NULL,
+  `cp` varchar(7) NOT NULL,
+  `dateNaissance` varchar(10) NOT NULL,
+  `dateInscription` varchar(10) NOT NULL,
+  `courriel` varchar(45) NOT NULL,
+  `Personne_idPersonne` int(11) NOT NULL,
+  PRIMARY KEY (`idClient`,`Personne_idPersonne`),
+  KEY `fk_Client_Personne1_idx` (`Personne_idPersonne`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`idClient`, `telephone`, `cellulaire`, `adresse`, `ville`, `cp`, `dateNaissance`, `dateInscription`, `courriel`, `Personne_idPersonne`) VALUES
+(1, '3603601337', '3603601337', '420 Blazeit St.', 'SnoopTown', 'D6D6D6', '1996-01-20', '2014-12-04', 'modonoob@erileduc.zip', 3);
 
 -- --------------------------------------------------------
 
@@ -45,36 +73,6 @@ CREATE TABLE IF NOT EXISTS `entraineur_client` (
 
 INSERT INTO `entraineur_client` (`idEntraineur_Client`, `Personne_idPersonne`, `Client_idClient`) VALUES
 (0, 2, 1);
--- --------------------------------------------------------
-
---
--- Table structure for table `client`
---
-
-DROP TABLE IF EXISTS `client`;
-CREATE TABLE IF NOT EXISTS `client` (
-  `idClient` int(11) NOT NULL AUTO_INCREMENT,
-  `telephone` char(10) NOT NULL,
-  `cellulaire` char(10) NOT NULL,
-  `adresse` varchar(45) NOT NULL,
-  `ville` varchar(45) NOT NULL,
-  `cp` char(6) NOT NULL,
-  `dateNaissance` date NOT NULL,
-  `dateInscription` date NOT NULL,
-  `courriel` varchar(45) NOT NULL,
-  `Personne_idPersonne` int(11) NOT NULL,
-  PRIMARY KEY (`idClient`,`Personne_idPersonne`),
-  KEY `fk_Client_Personne1_idx` (`Personne_idPersonne`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`idClient`, `telephone`, `cellulaire`, `adresse`, `ville`, `cp`, `dateNaissance`, `dateInscription`, `courriel`, `Personne_idPersonne`) VALUES
-(1, '3603601337', '3603601337', '420 Blazeit St.', 'SnoopTown', 'D6D6D6', '1996-01-20', '2014-12-04', 'modonoob@erileduc.zip', 3);
-
-
 
 -- --------------------------------------------------------
 
@@ -89,15 +87,15 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `password` varchar(16) NOT NULL,
   `firstName` varchar(24) NOT NULL,
   `lastName` varchar(24) NOT NULL,
-  `type` int(11) NOT NULL,
+  `categorie` int(11) NOT NULL,
   PRIMARY KEY (`idPersonne`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `personne`
 --
 
-INSERT INTO `personne` (`idPersonne`, `username`, `password`, `firstName`, `lastName`, `type`) VALUES
+INSERT INTO `personne` (`idPersonne`, `username`, `password`, `firstName`, `lastName`, `categorie`) VALUES
 (1, 'JVoiselle', '1234', 'Julie', 'Voiselle', 0),
 (2, 'ELeduc', '1234', 'Eric', 'Leduc', 1),
 (3, 'LALevac', '1337', 'Louis-Alexandre', 'Levac', 2),
@@ -121,8 +119,8 @@ ALTER TABLE `client`
 -- Constraints for table `entraineur_client`
 --
 ALTER TABLE `entraineur_client`
-  ADD CONSTRAINT `fk_Entraineur_Client_Personne1` FOREIGN KEY (`Personne_idPersonne`) REFERENCES `personne` (`idPersonne`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Entraineur_Client_Client1` FOREIGN KEY (`Client_idClient`) REFERENCES `client` (`idClient`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Entraineur_Client_Client1` FOREIGN KEY (`Client_idClient`) REFERENCES `client` (`idClient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Entraineur_Client_Personne1` FOREIGN KEY (`Personne_idPersonne`) REFERENCES `personne` (`idPersonne`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
