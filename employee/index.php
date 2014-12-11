@@ -1,4 +1,9 @@
 <?php
+
+require_once('../model/database.php');
+require_once('../model/personne_db.php');
+require_once('../model/client_db.php');
+
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
     if($action == 'home') {
@@ -7,6 +12,7 @@ if(isset($_GET['action'])) {
     else if($action == 'list_clients') {
         require('../model/database.php');
         require('../model/personne_db.php');
+
         $clients = get_liste_client(2);
         include('client_list.php');
     }
@@ -14,8 +20,6 @@ if(isset($_GET['action'])) {
         include('client_add.php');
     }
     else if($action == 'add_client') {
-        require('../model/personne_db.php');
-        require('../model/client_db.php');
 
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -32,9 +36,9 @@ if(isset($_GET['action'])) {
 
         create_personne($username, $password, $fname, $lname, 2);
         $personneId = get_idPersonne($username);
-        create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville, 2);
+        $pit = create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville, 2);
 
-        header('Location : .?action=list_clients');
+        header("Location: .?action=list_clients");
 
     }
 }
