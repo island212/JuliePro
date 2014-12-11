@@ -14,6 +14,8 @@
     <link href="../assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <link href="../assets/css/base.css" rel="stylesheet" />
 </head>
 <body>
 <div id="wrapper">
