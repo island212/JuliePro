@@ -25,14 +25,15 @@ function get_type($username, $password) {
 }
 /*Retourne 0 et insert une personne si la requete fonctionne;
   Retourne -1 si le username existe deja;*/
-function create_personne($username,$passowrd,$firstName,$lastName,$type){
+function create_personne($username,$password,$firstName,$lastName,$type){
     global $db;
+
     $usernameQuery = "SELECT username FROM personne
                       WHERE username='$username'";
     $checkUsername = $db->query($usernameQuery)->fetch();
-    if ($checkUsername[0] == $username) {
-        $insertQuery = "INSERT INTO personne (username, password, firstName, lastName, categorie)
-                        VALUES ('$username','$passowrd','$firstName','$lastName','$type')";
+    if ($checkUsername[0] != $username) {
+        $insertQuery = "INSERT INTO `personne`(`username`, `password`, `firstName`, `lastName`, `categorie`)
+                        VALUES ('$username','$password','$firstName','$lastName','$type')";
         $db->exec($insertQuery);
         return 0;
     } else {
