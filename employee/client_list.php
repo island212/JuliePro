@@ -13,7 +13,7 @@
                 Mes clients
             </div>
             <div class="panel-body">
-                <div class="table-responsive">
+                <div class="table-responsive col-sm-8">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
@@ -31,6 +31,7 @@
                         </tbody>
                     </table>
                 </div>
+                <a class="btn btn-default" href=".?action=add_client_form">Nouveau client</a>
             </div>
         </div>
     </div>

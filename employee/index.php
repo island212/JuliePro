@@ -20,7 +20,7 @@ if(isset($_GET['action'])) {
         $password = $_POST['password'];
         $fname = $_POST['firstName'];
         $lname = $_POST['lastName'];
-        $address = $_POST['address'];
+        $address = $_POST['adresse'];
         $cell = $_POST['cellulaire'];
         $courriel = $_POST['courriel'];
         $cp = $_POST['cp'];
