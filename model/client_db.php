@@ -6,7 +6,7 @@ function create_client($adresse, $cellulaire, $courriel, $cp, $dateInscription, 
     $query = "INSERT INTO client (telephone, cellulaire, adresse, ville, cp, dateNaissance, dateInscription, courriel, Personne_idPersonne)
               VALUES ('.$telephone.','.$cellulaire.','.$adresse.','.$ville.','.$cp.','.$dateNaissance.','.$dateInscription.','.$courriel.', '.$idPersonne.')";
 
-    $db->query($query);
+    $db->exec($query);
 }
 
 /*Retourne les info sur le client avec plus de details*/
