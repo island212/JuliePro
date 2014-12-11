@@ -12,7 +12,7 @@ function get_type($username, $password) {
         WHERE password='$password' AND username='$username'";
         $checkPassword = $db->query($passwordQuery)->fetch();
         if ($checkPassword[0] == $password) {
-            $query = "SELECT type FROM personne
+            $query = "SELECT categorie FROM personne
                     WHERE username='$username' AND password='$password'";
             $type = $db->query($query)->fetch();
             return $type[0];
