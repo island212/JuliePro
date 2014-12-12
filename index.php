@@ -9,9 +9,7 @@
             $result = get_type($username, $password);
             if($result == 1) {
                 session_start();
-                $_SESSION['username'] = $username;
-                $_SESSION['password'] = $password;
-                $_SESSION['idEntraineur'] = get_idPersonne($username);
+                $_SESSION["detailsPersonne"] = get_info_personne(get_idPersonne($username));
                 header("Location: employee/index.php?action=home");
             }
         }
@@ -31,7 +29,7 @@
     <?php require_once('model/personne_db.php'); ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>JuliePro - Connexion</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
