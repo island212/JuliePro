@@ -1,5 +1,5 @@
 <?php
-    $hostname = "104.236.118.148:3306";
+    $hostname = "modonoob.net";
     $dbname = "e04_julieprodb";
     $db_username = "internal";
     $db_password = "hunter2";
