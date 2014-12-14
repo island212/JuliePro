@@ -10,9 +10,6 @@ if(isset($_GET['action'])) {
         include('home.php');
     }
     else if($action == 'list_clients') {
-        require('../model/database.php');
-        require('../model/personne_db.php');
-
         $clients = get_liste_client(2);
         include('client_list.php');
     }
@@ -34,9 +31,12 @@ if(isset($_GET['action'])) {
         $telephone = $_POST['telephone'];
         $ville = $_POST['ville'];
 
+
+        session_start();
+
         create_personne($username, $password, $fname, $lname, 2);
         $personneId = get_idPersonne($username);
-        create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville, 2);
+        create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville, $_SESSION["detailsPersonne"]["idPersonne"]);
 
         header("Location: .?action=list_clients");
 
