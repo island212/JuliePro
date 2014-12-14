@@ -36,7 +36,7 @@ if(isset($_GET['action'])) {
 
         create_personne($username, $password, $fname, $lname, 2);
         $personneId = get_idPersonne($username);
-        $pit = create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville, 2);
+        create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville, 2);
 
         header("Location: .?action=list_clients");
 
