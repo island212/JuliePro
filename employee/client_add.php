@@ -70,7 +70,7 @@
                 <div class="form-group col-md-6">
                     <label>Date d'inscription:</label>
                     <label class="control-label">&nbsp;Veuillez spécifier une date d'inscription.</label>
-                    <input id="dateI" class="form-control" type="date" name="dateInscription">
+                    <input id="dateI" class="form-control" type="date" value="<?php echo date('Y-m-d');?>" name="dateInscription">
                 </div>
 
                 <button type="submit" class="btn btn-default">Envoyer</button>
