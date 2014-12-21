@@ -32,6 +32,11 @@
                         </table>
                     </div>
                     <a class="btn btn-default" href=".?action=add_client_form">Nouveau client</a>
+                    <?php foreach($clients as $c) : ?>
+                        <form action=".?action=add_tests">
+                            <input class="btn btn-default" type="submit" value="Nouveau résultat de test">
+                        </form>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

@@ -27,8 +27,9 @@ function get_idClient($idPersonne){
 
     $query="SELECT idClient
             FROM client
-            WHERE idPersonne='$idPersonne'";
-    $idClient = $db->query($query);
+            WHERE Personne_idPersonne = '$idPersonne'";
+    $result = $db->query($query)->fetch();
+    $idClient = $result[0];
 
     return $idClient;
 }

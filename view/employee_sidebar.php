@@ -13,7 +13,7 @@
                 <a <?php if($currentPage == 'client_list') { echo 'class="active-menu"'; } ?> href="../employee/?action=list_clients"><i class="fa fa-group fa-3x"></i> Mes clients</a>
             </li>
             <li>
-                <a <?php if($currentPage == 'client_tests') { echo 'class="active-menu"'; } ?> href="../employee/?action=list_clients"><i class="fa fa-bar-chart-o fa-3x"></i> Progression</a>
+                <a <?php if($currentPage == 'client_tests') { echo 'class="active-menu"'; } ?> href="../employee/?action=list_clients_tests"><i class="fa fa-bar-chart-o fa-3x"></i> Progression</a>
             </li>
     </div>
 </nav>

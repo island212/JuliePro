@@ -38,13 +38,14 @@ if(isset($_GET['action'])) {
 
         session_start();
         $idEntraineur = $_SESSION["detailsPersonne"]["idPersonne"];
-        $idEntraineur / 0;
         create_client_entraineur($idEntraineur, $idClient);
 
         header("Location: .?action=list_clients");
     }
     else if($action == 'list_clients_tests') {
-        
+        session_start();
+        $clients = get_liste_client($_SESSION['detailsPersonne']['idPersonne']);
+        include('client_test_add.php');
     }
 }
 ?>
