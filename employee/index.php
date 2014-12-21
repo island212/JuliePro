@@ -33,8 +33,6 @@ if(isset($_GET['action'])) {
         $telephone = $_POST['telephone'];
         $ville = $_POST['ville'];
 
-        $checkDate =
-
         if(create_personne($username, $password, $fname, $lname, 2) == -1){
             echo '<script language="javascript">';
             echo 'alert("Le nom d\'utilisteur existe deja")';

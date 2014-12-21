@@ -13,7 +13,7 @@
                 $password = $_POST['password'];
 
                 require_once('model/personne_db.php');
-                $result = get_type($username, $password);
+                $result = get_type($username);
                 if($result == 1) {
                     session_start();
                     $_SESSION["detailsPersonne"] = get_info_personne(get_idPersonne($username));
