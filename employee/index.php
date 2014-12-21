@@ -33,11 +33,12 @@ if(isset($_GET['action'])) {
         $telephone = $_POST['telephone'];
         $ville = $_POST['ville'];
 
-        if(create_personne($username, $password, $fname, $lname, 2) == -1){
+        if(!check_username($username)){
             echo '<script language="javascript">';
             echo 'alert("Le nom d\'utilisteur existe deja")';
             echo '</script>';
-        } /*2 = client*/
+        }
+        create_personne($username, $password, $fname, $lname, 2); /*2 = type client*/
         $personneId = get_idPersonne($username);
         create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville);
         $idClient = get_idClient($personneId);
@@ -53,4 +54,3 @@ if(isset($_GET['action'])) {
         include('client_test_add.php');
     }
 }
-?>

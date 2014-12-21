@@ -13,8 +13,10 @@
                 $password = $_POST['password'];
 
                 require_once('model/personne_db.php');
-                $result = get_type($username);
-                if($result == 1) {
+                $usernameValide = check_username($username);
+                $passwordValide = check_password($password);
+                $type = get_type($username);
+                if($type== 1) {
                     session_start();
                     $_SESSION["detailsPersonne"] = get_info_personne(get_idPersonne($username));
                     header("Location: employee/index.php?action=home");
@@ -81,14 +83,14 @@ font-size: 16px;"> <?php
                 <div class="panel-body">
                     <p>Veuillez vous connecter pour continuer.</p><br />
                     <form action=".?action=login" method="post">
-                    <?php if((isset($result) && $result == -2) || (isset($action) && $action == 'login' && $username == "")) {
+                    <?php if((isset($usernameValide) && $usernameValide == false) || (isset($action) && $action == 'login' && $username == "")) {
                             echo '<div class="form-group has-error"><label class="control-label">Nom d\'utilisateur non valide.</label>';
                           } else {
                             echo '<div class="form-group">';
                     } ?>
                         <input class="form-control" type="text" name="username" placeholder="Nom d'utilisateur" value="<?php if(isset($username)) { echo $username; } ?>"/>
                     </div>
-                <?php if((isset($result) && $result == -1) || (isset($action) && $action == 'login' && $password == "")) {
+                <?php if((isset($passwordValide) && $passwordValide == false) || (isset($action) && $action == 'login' && $password == "")) {
                     echo '<div class="form-group has-error"><label class="control-label">Mot de passe non valide.</label>';
                 } else {
                     echo '<div class="form-group">';
