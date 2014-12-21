@@ -10,7 +10,9 @@ if(isset($_GET['action'])) {
         include('home.php');
     }
     else if($action == 'list_clients') {
-        $clients = get_liste_client(2);
+        session_start();
+        $idEntraineur = $_SESSION["detailsPersonne"]["idPersonne"];
+        $clients = get_liste_client($idEntraineur);
         include('client_list.php');
     }
     else if($action == 'add_client_form') {
@@ -31,11 +33,12 @@ if(isset($_GET['action'])) {
         $telephone = $_POST['telephone'];
         $ville = $_POST['ville'];
 
-        create_personne($username, $password, $fname, $lname, 2);
+
+
+        create_personne($username, $password, $fname, $lname, 2); /*2 = client*/
         $personneId = get_idPersonne($username);
         create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville);
         $idClient = get_idClient($personneId);
-
         session_start();
         $idEntraineur = $_SESSION["detailsPersonne"]["idPersonne"];
         create_client_entraineur($idEntraineur, $idClient);
