@@ -35,6 +35,7 @@ float: right;
 font-size: 16px;"> <?php
             setlocale (LC_TIME, 'fr_FR.utf8','fra');
             echo utf8_encode((strftime("%d %B %Y")));
-            ?> &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
+            ?> &nbsp;
+            <a href="../index.php?action=logout" class="btn btn-danger square-btn-adjust">Logout</a>
         </div>
     </nav>

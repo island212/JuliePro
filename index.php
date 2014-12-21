@@ -1,26 +1,38 @@
 ﻿<?php
     if(isset($_GET['action'])) {
         $action = $_GET['action'];
-        if($action == 'login' && isset($_POST['username']) && isset($_POST['password'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+    }
+    else {
+        $action = '';
+    }
 
-            require_once('model/personne_db.php');
-            $result = get_type($username, $password);
-            if($result == 1) {
-                session_start();
-                $_SESSION["detailsPersonne"] = get_info_personne(get_idPersonne($username));
-                header("Location: employee/index.php?action=home");
+    switch($action) {
+        case 'login':
+            if(isset($_POST['username']) && isset($_POST['password'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+
+                require_once('model/personne_db.php');
+                $result = get_type($username, $password);
+                if($result == 1) {
+                    session_start();
+                    $_SESSION["detailsPersonne"] = get_info_personne(get_idPersonne($username));
+                    header("Location: employee/index.php?action=home");
+                }
             }
-        }
-        else {
-            if(!isset($_POST['username'])) {
-                $username = "";
+            else {
+                if(!isset($_POST['username'])) {
+                    $username = "";
+                }
+                if(!isset($_POST['password'])) {
+                    $password = "";
+                }
             }
-            if(!isset($_POST['password'])) {
-                $password = "";
-            }
-        }
+            break;
+        case 'logout':
+            session_start();
+            session_destroy();
+            break;
     }
 ?>
 <!DOCTYPE html>
