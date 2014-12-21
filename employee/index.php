@@ -35,7 +35,11 @@ if(isset($_GET['action'])) {
 
         $checkDate =
 
-        create_personne($username, $password, $fname, $lname, 2); /*2 = client*/
+        if(create_personne($username, $password, $fname, $lname, 2) == -1){
+            echo '<script language="javascript">';
+            echo 'alert("Le nom d\'utilisteur existe deja")';
+            echo '</script>';
+        } /*2 = client*/
         $personneId = get_idPersonne($username);
         create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville);
         $idClient = get_idClient($personneId);
