@@ -75,14 +75,14 @@ function get_liste_client($idPersonne){
     return $listeClient;
 }
 
-/*Retourne le firstName d'une personne*/
+/*Retourne tous les champs d'une personne*/
 function get_info_personne($idPersonne){
     global $db;
     $query = "SELECT firstName, lastName, username, password, categorie, idPersonne
               FROM personne
               WHERE idPersonne='$idPersonne'";
-    $firstName = $db->query($query)->fetch();
-    return $firstName;
+    $infos = $db->query($query)->fetch();
+    return $infos;
 }
 
 ?>

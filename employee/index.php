@@ -1,5 +1,4 @@
 <?php
-
 require_once('../model/database.php');
 require_once('../model/personne_db.php');
 require_once('../model/client_db.php');
@@ -32,18 +31,20 @@ if(isset($_GET['action'])) {
         $telephone = $_POST['telephone'];
         $ville = $_POST['ville'];
 
-
-        session_start();
-
         create_personne($username, $password, $fname, $lname, 2);
         $personneId = get_idPersonne($username);
         create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville);
         $idClient = get_idClient($personneId);
+
+        session_start();
         $idEntraineur = $_SESSION["detailsPersonne"]["idPersonne"];
+        $idEntraineur / 0;
         create_client_entraineur($idEntraineur, $idClient);
 
         header("Location: .?action=list_clients");
-
+    }
+    else if($action == 'list_clients_tests') {
+        
     }
 }
 ?>
