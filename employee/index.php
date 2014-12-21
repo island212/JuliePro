@@ -3,6 +3,7 @@
 require_once('../model/database.php');
 require_once('../model/personne_db.php');
 require_once('../model/client_db.php');
+require_once '../model/entraineur_client_db.php';
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -36,7 +37,10 @@ if(isset($_GET['action'])) {
 
         create_personne($username, $password, $fname, $lname, 2);
         $personneId = get_idPersonne($username);
-        create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville, $_SESSION["detailsPersonne"]["idPersonne"]);
+        create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville);
+        $idClient = get_idClient($personneId);
+        $idEntraineur = $_SESSION["detailsPersonne"]["idPersonne"];
+        create_client_entraineur($idEntraineur, $idClient);
 
         header("Location: .?action=list_clients");
 
