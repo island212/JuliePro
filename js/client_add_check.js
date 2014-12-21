@@ -93,7 +93,7 @@ $("#client_add_form").submit(function(e) {
         curObject.prev().css("display", "none");
 
     curObject = $("#dateN");
-    if(curObject.val() == "") {
+    if(curObject.val() == "" || dateIsValid(curObject.val())) {
         curObject.parent().addClass("has-error");
         curObject.prev().css("display", "block");
         isValid = false;
@@ -114,3 +114,11 @@ $("#client_add_form").submit(function(e) {
     if(isValid)
         this.submit();
 });
+
+function dateIsValid(date)
+{
+    var date1 = new Date(date);
+    var now = new Date();
+
+    return date1.getTime() > now.getTime();
+}

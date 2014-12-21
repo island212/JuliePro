@@ -33,7 +33,7 @@ if(isset($_GET['action'])) {
         $telephone = $_POST['telephone'];
         $ville = $_POST['ville'];
 
-
+        $checkDate =
 
         create_personne($username, $password, $fname, $lname, 2); /*2 = client*/
         $personneId = get_idPersonne($username);

@@ -64,7 +64,7 @@
 
                 <div class="form-group col-md-6">
                     <label>Date de naissance:</label>
-                    <label class="control-label">&nbsp;Veuillez spécifier une date de naissance.</label>
+                    <label class="control-label">&nbsp;Veuillez spécifier une date de naissance vailde.</label>
                     <input id="dateN" class="form-control" type="date" name="dateNaissance">
                 </div>
                 <div class="form-group col-md-6">
