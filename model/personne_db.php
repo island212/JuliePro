@@ -80,17 +80,15 @@ function check_username($username){
 function check_password($username, $password){
     global $db;
 
-    $query = "SELECT password
+    $query = "SELECT COUNT(password)
               FROM personne
               WHERE username='$username' AND  password='$password'";
-    $checkPassword = $db->query($query)->fetch();
+    $checkPassword = $db->query($query) ->fetch();
 
-    if($checkPassword == $password){
+    if($checkPassword[0] == 1){
         return true;
     }
     else{
         return false;
     }
 }
-
-?>
