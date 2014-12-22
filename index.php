@@ -14,7 +14,7 @@
 
                 require_once('model/personne_db.php');
                 $usernameValide = check_username($username);
-                $passwordValide = check_password($password);
+                $passwordValide = check_password($username, $password);
                 $type = get_type($username);
                 if($type== 1) {
                     session_start();

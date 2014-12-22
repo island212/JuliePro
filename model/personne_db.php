@@ -77,12 +77,12 @@ function check_username($username){
     }
 }
 
-function check_password($password){
+function check_password($username, $password){
     global $db;
 
     $query = "SELECT password
               FROM personne
-              WHERE password='$password'";
+              WHERE username='$username' AND  password='$password'";
     $checkPassword = $db->query($query)->fetch();
 
     if($checkPassword == $password){
