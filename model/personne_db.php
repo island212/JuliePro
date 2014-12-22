@@ -64,12 +64,12 @@ function get_info_personne($idPersonne){
 function check_username($username){
     global $db;
 
-    $query = "SELECT COUNT(username)
+    $query = "SELECT username
               FROM personne
               WHERE username='$username'";
     $checkUsername = $db->query($query)->fetch();
 
-    if($checkUsername[0] == 1){
+    if($checkUsername == $username){
         return true;
     }
     else{

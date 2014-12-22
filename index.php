@@ -15,7 +15,7 @@ switch ($action) {
             $usernameValide = check_username($username);
             $passwordValide = check_password($username, $password);
             $type = get_type($username);
-            if ($type == 1 && $passwordValide) {
+            if ($type == 1) {
                 session_start();
                 $_SESSION["detailsPersonne"] = get_info_personne(get_idPersonne($username));
                 header("Location: employee/index.php?action=home");
