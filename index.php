@@ -34,7 +34,7 @@ switch ($action) {
         session_destroy();
         break;
     case 'autologin':
-        if (session_start() == PHP_SESSION_ACTIVE) {
+        if (session_status() == PHP_SESSION_ACTIVE) {
             $_POST['username'] = $_SESSION['detailsPersonne']['username'];
             $_POST['password'] = $_SESSION['detailsPersonne']['password'];
             header('Location: .?action=login');
