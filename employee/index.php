@@ -21,6 +21,11 @@ if(isset($_GET['action'])) {
     else if($action == 'add_client') {
 
         $username = $_POST['username'];
+        if(check_username($username))
+        {
+            header("Location: .?action=add_client_form");
+            return;
+        }
         $password = $_POST['password'];
         $fname = $_POST['firstName'];
         $lname = $_POST['lastName'];
@@ -33,11 +38,6 @@ if(isset($_GET['action'])) {
         $telephone = $_POST['telephone'];
         $ville = $_POST['ville'];
 
-        if(!check_username($username)){
-            echo '<script language="javascript">';
-            echo 'alert("Le nom d\'utilisteur existe deja")';
-            echo '</script>';
-        }
         create_personne($username, $password, $fname, $lname, 2); /*2 = type client*/
         $personneId = get_idPersonne($username);
         create_client($address, $cell, $courriel, $cp, $dInscription, $dNaissance, $personneId, $telephone, $ville);

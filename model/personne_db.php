@@ -69,11 +69,11 @@ function check_username($username){
               WHERE username='$username'";
     $checkUsername = $db->query($query)->fetch();
 
-    if($checkUsername[0] == 1){
-        return true;
+    if($checkUsername[0] == 0){
+        return false;
     }
     else{
-        return false;
+        return true;
     }
 }
 
